@@ -63,12 +63,13 @@ function changeGenerator(generator) {
       display: flex;
       flex-direction: column;
       align-items: end;
+      gap: 12px;
 
       text-align: right;
       font-size: 1.1rem;
 
       .theGenerator__string p{
-        padding: 8px;
+        padding: 0px 4px;
       }
     }
 
