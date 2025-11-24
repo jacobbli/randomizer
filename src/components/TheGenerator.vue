@@ -98,14 +98,14 @@ function changeGenerator(generator) {
 }
 
 .v-enter-active {
-  animation: bounce-in 1s;
+  animation: flash-background 1s;
 }
 
 .v-enter-to {
-  animation: bounce-in 1s;
+  animation: flash-background 1s;
 }
 
-@keyframes bounce-in {
+@keyframes flash-background {
   0% {
     background-color: none;
   }
