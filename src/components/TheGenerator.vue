@@ -8,18 +8,14 @@ const generatorMap = {
   stringGenerator: getRandomString
 }
 
-const randomizedEnglishString = ref("")
-const randomizedChineseString = ref("")
+const randomizedStrings = ref("")
 const activeGenerator = ref('descriptiveAnimals')
 const separator = ref(' ')
 
 onMounted(() => generateString())
 
 function generateString() {
-  const randomizedString = generatorMap[activeGenerator.value]()
-  randomizedEnglishString.value = randomizedString['english'].join(separator.value)
-  randomizedChineseString.value = randomizedString['chinese'].join("")
-
+  randomizedStrings.value = generatorMap[activeGenerator.value]()
 }
 
 function changeGenerator(generator) {
@@ -39,12 +35,11 @@ function changeGenerator(generator) {
     </div>
     <div class="theGenerator__input">
       <div class="theGenerator__leftColumn">
-        <Transition mode="out-in">
-          <div class="theGenerator__string" :key="randomizedChineseString">
-            <p>{{ randomizedEnglishString }}</p>
-            <p>{{ randomizedChineseString }}</p>
-          </div>
-        </Transition>
+        <div class="theGenerator__string" v-for="string in randomizedStrings" :key="string">
+          <Transition mode="out-in">
+            <p :key="string">{{ string.join(separator) }}</p>
+          </Transition>
+        </div>
       </div>
       <div class="theGenerator__rightColumn">
         <button @click="generateString">Randomize</button>

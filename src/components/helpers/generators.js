@@ -295,10 +295,10 @@ export function getDescriptiveAnimal() {
   ]
   const chosenAdjective = adjectives[getRandomIndex(adjectives.length)]
   const chosenAnimal = animals[getRandomIndex(animals.length)]
-  return {
-    english: [chosenAdjective['english'], chosenAnimal['english']],
-    chinese: [chosenAdjective['chinese'], chosenAnimal['chinese']],
-  }
+  return [
+    [chosenAdjective['english'], chosenAnimal['english']],
+    [chosenAdjective['chinese'], chosenAnimal['chinese']],
+  ]
 }
 
 export function getRandomString() {
@@ -332,5 +332,5 @@ export function getRandomString() {
   ]
 
   const chosenString = upperCaseLetters[getRandomIndex(upperCaseLetters.length)]
-  return [chosenString]
+  return [[chosenString]]
 }
