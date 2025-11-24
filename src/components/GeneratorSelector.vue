@@ -33,12 +33,9 @@ function selectGenerator(generator) {
   align-items: center;
   width: 100%;
   height: 100px;
-  // border: 1px black solid;
 
   .generatorSelector__item {
     cursor: pointer;
-
-
     text-decoration: none;
     color: black;
     background: linear-gradient(#000000, #000000) left bottom / 0 2px no-repeat;

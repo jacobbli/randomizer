@@ -8,14 +8,18 @@ const generatorMap = {
   stringGenerator: getRandomString
 }
 
-const randomizedString = ref("")
+const randomizedEnglishString = ref("")
+const randomizedChineseString = ref("")
 const activeGenerator = ref('descriptiveAnimals')
 const separator = ref(' ')
 
 onMounted(() => generateString())
 
 function generateString() {
-  randomizedString.value = generatorMap[activeGenerator.value]().join(separator.value)
+  const randomizedString = generatorMap[activeGenerator.value]()
+  randomizedEnglishString.value = randomizedString['english'].join(separator.value)
+  randomizedChineseString.value = randomizedString['chinese'].join("")
+
 }
 
 function changeGenerator(generator) {
@@ -36,9 +40,10 @@ function changeGenerator(generator) {
     <div class="theGenerator__input">
       <div class="theGenerator__leftColumn">
         <Transition mode="out-in">
-          <span class="theGenerator__string" :key="randomizedString">
-            {{ randomizedString }}
-          </span>
+          <div class="theGenerator__string" :key="randomizedChineseString">
+            <p>{{ randomizedEnglishString }}</p>
+            <p>{{ randomizedChineseString }}</p>
+          </div>
         </Transition>
       </div>
       <div class="theGenerator__rightColumn">
@@ -59,8 +64,12 @@ function changeGenerator(generator) {
 
     .theGenerator__leftColumn {
       flex: 1;
-      text-align: right;
 
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+
+      text-align: right;
       font-size: 1.1rem;
 
       .theGenerator__string {
@@ -88,21 +97,23 @@ function changeGenerator(generator) {
   }
 }
 
-.v-enter-active{
-  animation: bounce-in 1s ;
+.v-enter-active {
+  animation: bounce-in 1s;
 }
 
-.v-enter-to{
-  animation: bounce-in 1s ;
+.v-enter-to {
+  animation: bounce-in 1s;
 }
 
 @keyframes bounce-in {
   0% {
     background-color: none;
   }
+
   50% {
     background-color: hsl(214, 100%, 90%);
   }
+
   100% {
     background-color: none;
   }
