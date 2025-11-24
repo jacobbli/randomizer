@@ -1,7 +1,9 @@
 <script setup>
-import PhraseGenerator from './components/PhraseGenerator.vue'
+import TheGenerator from './components/TheGenerator.vue';
+
 </script>
 
 <template>
-  <phrase-generator />
+  <the-generator/>
 </template>
+

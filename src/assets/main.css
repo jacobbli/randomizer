@@ -1,19 +1,30 @@
-@import './base.css';
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
 
 #app {
   width: 100vw;
   height: 100vh;
   margin: 0 auto;
-  padding: 2rem;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   font-weight: normal;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+
+
+body {
+  background-color: white;
+  line-height: 1.6;
+  font-family: sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
