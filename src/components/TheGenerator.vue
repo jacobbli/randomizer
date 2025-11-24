@@ -35,10 +35,10 @@ function changeGenerator(generator) {
     </div>
     <div class="theGenerator__input">
       <div class="theGenerator__leftColumn">
-        <div class="theGenerator__string" v-for="string in randomizedStrings" :key="string">
-          <Transition mode="out-in">
+        <div class="theGenerator__string" v-for="(string, index) in randomizedStrings" :key="index">
+          <transition mode="out-in">
             <p :key="string">{{ string.join(separator) }}</p>
-          </Transition>
+          </transition>
         </div>
       </div>
       <div class="theGenerator__rightColumn">
@@ -67,7 +67,7 @@ function changeGenerator(generator) {
       text-align: right;
       font-size: 1.1rem;
 
-      .theGenerator__string {
+      .theGenerator__string p{
         padding: 8px;
       }
     }
@@ -113,6 +113,4 @@ function changeGenerator(generator) {
     background-color: none;
   }
 }
-
-@media only screen and (min-width: 768px) {}
 </style>
